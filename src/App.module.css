@@ -1,0 +1,33 @@
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,250px);
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px; 
+  margin: left 50px;;
+  margin: 0 auto;
+}
+
+.rect {
+  width: 250px;
+  height: 350px;
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 8px; 
+  transition: transform 0.2s ease; 
+}
+
+.title{
+    text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: auto; 
+  margin-bottom: 10px; 
+
+}
+
+
+.rect:hover {
+  transform: translateY(-5px);
+}
