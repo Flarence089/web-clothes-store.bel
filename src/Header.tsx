@@ -15,12 +15,13 @@ const Header: React.FC = () => {
       <nav className={styles.nav}>
         <Link to="/favorites" className={styles.navLink}>
           Избранное 
-        <Link to = '/cart' className={styles.navLink}>
-          Корзина
-        </Link>
           {favoriteItems.length > 0 && (
             <span className={styles.badge}>{favoriteItems.length}</span>
           )}
+        <Link to = '/cart' className={styles.navLink}>
+          Корзина
+        </Link>
+          
         </Link>
       </nav>
     </header>
