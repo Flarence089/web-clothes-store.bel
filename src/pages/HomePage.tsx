@@ -1,11 +1,11 @@
-import React from 'react'
+
 import styles from '../App.module.css'
 import type { IProducts } from '../assets/types/types'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import CardProduct from '../СardProduct'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+
 
 const fetchProducts = async () => {
   const response = await axios.get<IProducts[]>('https://fakestoreapi.com/products')
@@ -16,7 +16,6 @@ const HomePage = () => {
   
   const [searchQuery,setSearchQuery] = useState('')
   const [selectedCategory,setSelectedCategory] = useState('all')
-  const navigate = useNavigate()
 
   const { data: products, isLoading, error } = useQuery({
     queryKey: ['products'],
@@ -41,7 +40,7 @@ const HomePage = () => {
   return (  
     <div>
       <div style={{ textAlign: 'center', padding: '20px 0' }}>
-        <h1>белорусский ресейл</h1>
+     
         
         <input 
           type='text' 
@@ -56,11 +55,6 @@ const HomePage = () => {
       <section>
         <div>
           <h2 style={{ marginLeft: 130 }}>Товары</h2>
-          <div style={{ display: 'flex', justifyContent: 'flex-end' ,marginRight:'130px'}}>
-              <button style={{ marginBottom: '20px' }} onClick={() => navigate('/favorites')}>
-                     Избранное
-              </button>
-          </div>
          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px', flexWrap: 'wrap' }}>
   {categories.map((category) => (
     <button

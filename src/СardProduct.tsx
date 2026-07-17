@@ -4,45 +4,44 @@ import styles from './App.module.css'
 import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
 
-
-interface ICardProducts{
-  product:IProducts;
+interface ICardProducts {
+  product: IProducts;
 }
 
-    
-
-const CardProduct: React.FC<ICardProducts> = ({product}) => {
-
-  const {favorites,toggleFavorite} = useFavoritesStore()
+const CardProduct: React.FC<ICardProducts> = ({ product }) => {
+  const { favorites, toggleFavorite } = useFavoritesStore()
+  const favoriteItems = Object.values(favorites);
   
-  const isLiked = favorites.some((fav) => fav.id === product.id)
+  const isLiked = favoriteItems.some((fav) => fav.id === product.id)
 
-console.log('Статус лайка для товара:', product.id, isLiked);
- return (
+  return (
     <div className={styles.rect}>
-      <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-        <div className={styles.rect}>
+      <Link 
+        to={`/product/${product.id}`} 
+        style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', flexGrow: 1 }}
+      >
+        <div className={styles.imageWrapper}>
           <img src={product.image} alt={product.title} className={styles.img} />
         </div>
-        <div>
-          <p className={styles.price}>{product.price}</p>
+        
+        <div className={styles['info-wrapper']}>
+          <p className={styles.price}>${product.price}</p>
           <p className={styles.titleProduct}>{product.title}</p>
+          <p className={styles.ratingProduct}>{product.rating.rate}/5.0</p>
         </div>
       </Link>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '10px' }}>
-       <button 
-  onClick={() => toggleFavorite(product)}
-  style={{ 
-    cursor: 'pointer', 
-    fontSize: '24px',
-    display: 'block',  
-    marginTop: '10px' 
-  }}
->
-  {isLiked ? '❤️' : '🤍'}
-</button>
-        <button style={{ cursor: 'pointer' }}>открыть товар</button>
+      <div className={styles.cardFooter}>
+        <button 
+          onClick={() => toggleFavorite(product)}
+          style={{ 
+            cursor: 'pointer', 
+            fontSize: '24px',
+            display: 'block'
+          }}
+        >
+          {isLiked ? '❤️' : '🤍'}
+        </button>
       </div>
     </div>
   )

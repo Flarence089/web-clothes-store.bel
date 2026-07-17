@@ -12,19 +12,19 @@ export interface Product {
 }
 
 interface FavoritesStore {
-  favorites: IProducts[]; // 
+  favorites: Record<number,IProducts>; 
   toggleFavorite: (product: IProducts) => void; 
 }
 
 export const useFavoritesStore = create<FavoritesStore>((set) => ({
-  favorites: [],
+  favorites: {},
   toggleFavorite: (product) => set((state) => {
-    const isExist = state.favorites.some((fav) => fav.id === product.id);
-    
+    const isExist = !!state.favorites[product.id]
     if (isExist) {
-      return { favorites: state.favorites.filter((fav) => fav.id !== product.id) };
+     const {[product.id]: removedProduct, ...restFavorites} = state.favorites;
+     return {favorites:restFavorites};
     } else {
-      return { favorites: [...state.favorites, product] };
+      return { favorites:{ ...state.favorites, [product.id]: product } };
     }
   })
 }));
