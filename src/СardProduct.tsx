@@ -3,6 +3,7 @@ import type { IProducts } from './assets/types/types';
 import styles from './App.module.css'
 import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
+import {useCartStore} from './store/useCartStore'
 
 interface ICardProducts {
   product: IProducts;
@@ -10,9 +11,8 @@ interface ICardProducts {
 
 const CardProduct: React.FC<ICardProducts> = ({ product }) => {
   const { favorites, toggleFavorite } = useFavoritesStore()
-  const favoriteItems = Object.values(favorites);
-  
-  const isLiked = favoriteItems.some((fav) => fav.id === product.id)
+  const { toggleCart } = useCartStore();
+  const isLiked = !!favorites[product.id];
 
   return (
     <div className={styles.rect}>
@@ -42,6 +42,7 @@ const CardProduct: React.FC<ICardProducts> = ({ product }) => {
         >
           {isLiked ? '❤️' : '🤍'}
         </button>
+        <button onClick={() => toggleCart(product)} style={{cursor:'pointer',fontSize:'24px',display:'block'}}>В корзину</button>
       </div>
     </div>
   )
