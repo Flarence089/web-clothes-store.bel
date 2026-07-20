@@ -4,6 +4,7 @@ import styles from './App.module.css'
 import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
 import {useCartStore} from './store/useCartStore'
+import huiStyles from './Button.module.css'
 
 interface ICardProducts {
   product: IProducts;
@@ -42,7 +43,7 @@ const CardProduct: React.FC<ICardProducts> = ({ product }) => {
         >
           {isLiked ? '❤️' : '🤍'}
         </button>
-        <button onClick={() => toggleCart(product)} style={{cursor:'pointer',fontSize:'24px',display:'block'}}>В корзину</button>
+        <button className={huiStyles.myButton} onClick={() => toggleCart(product)}>В корзину</button>
       </div>
     </div>
   )

@@ -1,0 +1,17 @@
+
+.myButton {
+  padding: 8px 16px;
+  border-radius: 20px;           
+  border: 1px solid gray;       
+  background-color: white;       
+  color: black;
+  cursor: pointer;
+  text-transform: capitalize;    
+  transition: all 0.2s ease;
+}
+
+
+.activeButton {
+  background-color: black;
+  color: white;
+}

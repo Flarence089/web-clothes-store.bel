@@ -145,3 +145,42 @@ body {
     color: #000;
     text-decoration: none;
 }
+
+
+
+.statusMessage {
+  text-align: center;
+}
+
+
+.searchWrapper {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.searchInput {
+  width: 80%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+
+.sectionTitle {
+  margin-left: 130px;
+}
+
+
+.categoriesWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #888;
+}

@@ -30,7 +30,7 @@ const CartPage: React.FC = () => {
           </div>
         </>
       ) : (
-        <p style={{ fontSize: '18px', color: '#666' }}>Ваша корзина пуста 🛒</p>
+        <p style={{ fontSize: '18px', color: '#666' }}>Ваша корзина пуста</p>
       )}
     </div>
   );

@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
+import {useCartStore} from './store/useCartStore'
 import styles from './App.module.css'; 
 import'./App.css'
 
 const Header: React.FC = () => {
   const { favorites } = useFavoritesStore();
+  const {cart} = useCartStore();
   const favoriteItems = Object.values(favorites);
   return (
     <header className={styles.header}>
@@ -20,6 +22,10 @@ const Header: React.FC = () => {
           )}
         <Link to = '/cart' className={styles.navLink}>
           Корзина
+          {Object.keys(cart).length > 0 && (
+           <span className={styles.badge}>{Object.keys(cart).length}</span>
+           )}
+          {}
         </Link>
           
         </Link>

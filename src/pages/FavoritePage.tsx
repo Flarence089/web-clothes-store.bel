@@ -2,19 +2,18 @@ import React from 'react'
 import { useFavoritesStore } from '../store/useFavoritesStore'
 import { useNavigate } from 'react-router-dom'
 import CardProduct from '../СardProduct'
+import huiStyles from '../Button.module.css'
 
 
 
 const FavoritePage: React.FC = () => {
   const navigate = useNavigate();
-  
   const { favorites } = useFavoritesStore(); 
-
   const favoriteItems = Object.values(favorites);
 
   return (
     <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
-      <button onClick={() => navigate("/")}>Назад</button>
+      <button className={huiStyles.myButton} onClick={() => navigate("/")}>Назад</button>
       
       <h1>Избранное</h1>
 

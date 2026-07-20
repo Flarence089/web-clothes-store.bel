@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import type { IProducts } from '../assets/types/types'; 
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
+import huiStyles from '../Button.module.css'
+
 
 
 const ProductPage = () => {
@@ -29,9 +31,9 @@ const ProductPage = () => {
     <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <button 
         onClick={() => navigate(-1)} 
-        style={{ marginBottom: '20px', padding: '10px 20px', cursor: 'pointer', borderRadius: '8px', border: '1px solid gray' }}
+        className={huiStyles.myButton}
       >
-    Назад в каталог
+    Назад
       </button>
       
       {product && (
