@@ -2,9 +2,8 @@ import React from 'react'
 import { useFavoritesStore } from '../store/useFavoritesStore'
 import { useNavigate } from 'react-router-dom'
 import CardProduct from '../СardProduct'
-import huiStyles from '../Button.module.css'
-
-
+import huiStyles from '../styles/Button.module.css'
+import styles from '../styles/FavoritePage.module.css' 
 
 const FavoritePage: React.FC = () => {
   const navigate = useNavigate();
@@ -12,13 +11,13 @@ const FavoritePage: React.FC = () => {
   const favoriteItems = Object.values(favorites);
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1200px', margin: '0 auto' }}>
+    <div className={styles.favoriteContainer}>
       <button className={huiStyles.myButton} onClick={() => navigate("/")}>Назад</button>
       
-      <h1>Избранное</h1>
+      <h1 className={styles.favoriteTitle}>Избранное</h1>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, 250px)', gap: '20px' }}>
-        {Object.keys(favorites).length > 0 ? (
+      <div className={styles.favoriteGrid}>
+        {favoriteItems.length > 0 ? (
           favoriteItems.map((item) => (
             <CardProduct key={item.id} product={item} />
           ))
@@ -30,4 +29,4 @@ const FavoritePage: React.FC = () => {
   );
 };
 
-export default FavoritePage
+export default FavoritePage;

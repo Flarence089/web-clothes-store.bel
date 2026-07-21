@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
 import {useCartStore} from './store/useCartStore'
-import styles from './App.module.css'; 
-import'./App.css'
+import styles from './styles/App.module.css'; 
+
 
 const Header: React.FC = () => {
   const { favorites } = useFavoritesStore();

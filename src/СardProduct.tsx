@@ -1,10 +1,10 @@
 import React from 'react'
 import type { IProducts } from './assets/types/types';
-import styles from './App.module.css'
+import styles from './styles/App.module.css'
 import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
 import {useCartStore} from './store/useCartStore'
-import huiStyles from './Button.module.css'
+import huiStyles from './styles/Button.module.css'
 
 interface ICardProducts {
   product: IProducts;

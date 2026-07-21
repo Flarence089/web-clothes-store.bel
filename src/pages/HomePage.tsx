@@ -1,8 +1,8 @@
 
 import { useProductsLogic } from '../hooks/useProductLogic'; 
 import CardProduct from '../СardProduct'; 
-import styles from '../App.module.css'; 
-import huiStyles from '../Button.module.css';
+import styles from '../styles/App.module.css'; 
+import huiStyles from '../styles/Button.module.css';
 
 const HomePage = () => {
   const {

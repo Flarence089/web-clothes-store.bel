@@ -1,0 +1,39 @@
+.pageContainer {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.statusMessage {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.productWrapper {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.productImage {
+  width: 300px;
+  object-fit: contain;
+}
+
+.productTitle {
+  background-color: brown;
+}
+
+.productPrice {
+  color: lightgreen;
+}
+
+.productCategory {
+  color: gray;
+  text-transform: capitalize;
+}
+
+.productDescription {
+  margin-top: 20px;
+  line-height: 1.6;
+}

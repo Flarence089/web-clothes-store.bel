@@ -1,0 +1,29 @@
+.cartContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cartTitle {
+  margin-bottom: 20px;
+}
+
+.cartGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 250px);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.cartTotal {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: right;
+  border-top: 2px solid #eee;
+  padding-top: 20px;
+}
+
+.cartEmpty {
+  font-size: 18px;
+  color: #666;
+}
