@@ -3,7 +3,7 @@ import type { IProducts } from './assets/types/types';
 import styles from './styles/App.module.css'
 import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
-import {useCartStore} from './store/useCartStore'
+import { useCartStore } from './store/useCartStore'
 import huiStyles from './styles/Button.module.css'
 
 interface ICardProducts {
@@ -17,10 +17,7 @@ const CardProduct: React.FC<ICardProducts> = ({ product }) => {
 
   return (
     <div className={styles.rect}>
-      <Link 
-        to={`/product/${product.id}`} 
-        style={{ textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', flexGrow: 1 }}
-      >
+      <Link to={`/product/${product.id}`} className={styles.cardLink}>
         <div className={styles.imageWrapper}>
           <img src={product.image} alt={product.title} className={styles.img} />
         </div>
@@ -35,15 +32,16 @@ const CardProduct: React.FC<ICardProducts> = ({ product }) => {
       <div className={styles.cardFooter}>
         <button 
           onClick={() => toggleFavorite(product)}
-          style={{ 
-            cursor: 'pointer', 
-            fontSize: '24px',
-            display: 'block'
-          }}
+          className={styles.favoriteBtn}
         >
           {isLiked ? '❤️' : '🤍'}
         </button>
-        <button className={huiStyles.myButton} onClick={() => toggleCart(product)}>В корзину</button>
+        <button 
+          className={huiStyles.myButton} 
+          onClick={() => toggleCart(product)}
+        >
+          В корзину
+        </button>
       </div>
     </div>
   )

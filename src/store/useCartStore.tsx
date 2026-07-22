@@ -1,13 +1,8 @@
 import type { IProducts } from '../assets/types/types';
 import { create } from "zustand";
 
-export interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
+export interface ICartItem extends IProducts{
+  quantity: number;
 }
 
 interface CartStore {

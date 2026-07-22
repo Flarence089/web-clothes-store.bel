@@ -184,3 +184,19 @@ body {
   text-align: center;
   color: #888;
 }
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.favoriteBtn {
+  cursor: pointer;
+  font-size: 24px;
+  display: block;
+  background: none;
+  border: none;
+}

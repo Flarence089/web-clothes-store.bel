@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCartStore } from '../store/useCartStore';
-import CardProduct from '../СardProduct';
+import CartItem from '../CartItem'
 import styles from '../styles/CartPage.module.css'; 
 
 
@@ -17,7 +17,7 @@ const CartPage: React.FC = () => {
         <>
           <div className={styles.cartGrid}>
             {cartItems.map((item) => (
-              <CardProduct key={item.id} product={item} />
+              <CartItem key={item.id} product={item} />
             ))}
           </div>
           
