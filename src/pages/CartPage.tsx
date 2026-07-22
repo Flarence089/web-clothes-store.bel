@@ -7,8 +7,9 @@ import styles from '../styles/CartPage.module.css';
 const CartPage: React.FC = () => {
   const { cart } = useCartStore();
   const cartItems = Object.values(cart);
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0);
-
+  const totalPrice = Object.values(cart).reduce((sum, item) => {
+  return sum + (item.price * item.quantity);
+}, 0);
   return (
     <div className={styles.cartContainer}>
       <h1 className={styles.cartTitle}>Корзина</h1>

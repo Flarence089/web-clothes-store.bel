@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useFavoritesStore } from './store/useFavoritesStore';
 import {useCartStore} from './store/useCartStore'
 import styles from './styles/App.module.css'; 
+import './index.css'
 
 
 const Header: React.FC = () => {
@@ -12,7 +13,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.header}>
          <Link to = '/' className={styles.title}>
-          <h1>белорусский ресейл</h1>
+          <h1>byresale</h1>
           </Link>
       <nav className={styles.nav}>
         <Link to="/favorites" className={styles.navLink}>
