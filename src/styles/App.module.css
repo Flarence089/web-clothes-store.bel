@@ -101,13 +101,12 @@ body {
   padding: 0;
 }
 
-.header{
-    background-color: black;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+.header {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 20px 40px; 
+  background-color: black
 }
 
 .logo {
@@ -141,11 +140,25 @@ body {
 }
 .title{
   font-family: 'Planet Kosmos', sans-serif; 
+  font-weight: normal;
   letter-spacing: -2px;
+  letter-spacing: 1px;
   text-transform: lowercase;
   color: #fff;
   text-decoration: none;
+  transition: all 0.3s ease-out;
 }
+
+.title:hover{
+  text-shadow: 
+    3px 3px 0 #ff003c,   
+    6px 6px 0 #ffeb3b,   
+    9px 9px 0 #00ff73,   
+    12px 12px 0 #0055ff;
+  transform: translate(-3px, -3px);
+}
+
+
 
 
 
@@ -200,4 +213,9 @@ body {
   display: block;
   background: none;
   border: none;
+}
+
+a {
+  text-decoration: none; 
+  color:inherit;
 }

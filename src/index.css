@@ -2,5 +2,15 @@
     font-family: 'Planet Kosmos';
     font-style: normal;
     font-weight: normal;
-    src: url('PLANK___.woff') format('woff');
+    src: url('./fonts/PLANK___.woff') format('woff');
     }
+
+
+@keyframes shadow-dance {
+    0%, 100% {
+        text-shadow: 5px 5px 0 #ff005e, 10px 10px 0 #00d4ff;
+    }
+    50% {
+        text-shadow: -5px -5px 0 #00d4ff, -10px -10px 0 #ff005e;
+    }
+}
