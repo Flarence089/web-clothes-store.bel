@@ -5,6 +5,7 @@ import ProductPage from './pages/ProductPage';
 import FavoritePage from './pages/FavoritePage';
 import Header from './Header'; 
 import CartPage from './pages/CartPage';
+import LoginPage from './pages/LoginPage'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path='/favorites' element={<FavoritePage />} />
         <Route path = '/cart' element={<CartPage/>}/>
+        <Route path = '/login' element={<LoginPage/>}/>
       </Routes>
     </>
   );

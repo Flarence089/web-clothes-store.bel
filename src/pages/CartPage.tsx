@@ -1,22 +1,22 @@
 import React from 'react';
 import { useCartStore } from '../store/useCartStore';
-import CartItem from '../CartItem'
+import CartItem from '../CartItem';
 import styles from '../styles/CartPage.module.css'; 
-
 
 const CartPage: React.FC = () => {
   const { cart } = useCartStore();
   const cartItems = Object.values(cart);
   const totalPrice = Object.values(cart).reduce((sum, item) => {
-  return sum + (item.price * item.quantity);
-}, 0);
+    return sum + (item.price * item.quantity);
+  }, 0);
+
   return (
-    <div className={styles.cartContainer}>
-      <h1 className={styles.cartTitle}>Корзина</h1>
+    <div className={styles.container}>
+      <h1 className={styles.pageTitle}>Корзина</h1>
 
       {cartItems.length > 0 ? (
         <>
-          <div className={styles.cartGrid}>
+          <div className={styles.cartWrapper}>
             {cartItems.map((item) => (
               <CartItem key={item.id} product={item} />
             ))}
@@ -27,7 +27,7 @@ const CartPage: React.FC = () => {
           </div>
         </>
       ) : (
-        <p className={styles.cartEmpty}>Ваша корзина пуста</p>
+        <p className={styles.emptyCart}>Ваша корзина пуста</p>
       )}
     </div>
   );

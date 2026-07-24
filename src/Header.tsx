@@ -4,7 +4,7 @@ import { useFavoritesStore } from './store/useFavoritesStore';
 import { useCartStore } from './store/useCartStore';
 import styles from './styles/App.module.css'; 
 import './index.css';
-import { Heart,ShoppingCart } from 'lucide-react';
+import { Heart,ShoppingCart,CircleUser } from 'lucide-react';
 
 const Header: React.FC = () => {
   const { favorites } = useFavoritesStore();
@@ -30,6 +30,9 @@ const Header: React.FC = () => {
           {Object.keys(cart).length > 0 && (
             <span className={styles.badge}>{Object.keys(cart).length}</span>
           )}
+        </Link>
+        <Link to = '/login' className={styles.navLink}>
+          <CircleUser/>
         </Link>
       </nav>
     </header>
