@@ -1,15 +1,30 @@
 .favoriteContainer {
-  padding: 20px;
+  padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  min-height: calc(100vh - 100px); 
 }
 
 .favoriteTitle {
-  margin: 20px 0;
+  margin: 24px 0 32px 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
 }
 
 .favoriteGrid {
   display: grid;
   grid-template-columns: repeat(auto-fill, 250px);
+  justify-content: center; 
   gap: 20px;
+}
+
+
+.emptyState {
+  grid-column: 1 / -1; 
+  text-align: center;
+  color: #6b7280;
+  font-size: 18px;
+  padding: 80px 0;
 }

@@ -1,4 +1,3 @@
-
 import { useParams, useNavigate } from 'react-router-dom';
 import type { IProducts } from '../assets/types/types'; 
 import axios from 'axios';
@@ -39,7 +38,7 @@ const ProductPage = () => {
             alt={product.title} 
             className={styles.productImage}
           />
-          <div>
+          <div className={styles.infoWrapper}>
             <h1 className={styles.productTitle}>{product.title}</h1>
             <h2 className={styles.productPrice}>{product.price}$</h2>
             <p className={styles.productCategory}>Категория: {product.category}</p>

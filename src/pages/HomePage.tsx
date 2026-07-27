@@ -1,6 +1,6 @@
-
 import { useProductsLogic } from '../hooks/useProductLogic'; 
 import CardProduct from '../СardProduct'; 
+import SkeletonCard from '../SkeletonCard';
 import styles from '../styles/App.module.css'; 
 import huiStyles from '../styles/Button.module.css';
 
@@ -16,7 +16,6 @@ const HomePage = () => {
     error
   } = useProductsLogic();
 
-  if (isLoading) return <h2 className={styles.statusMessage}>Загрузка товаров...</h2>;
   if (error) return <h2 className={styles.statusMessage}>Ошибка при загрузке</h2>;
 
   return (  
@@ -48,7 +47,11 @@ const HomePage = () => {
         </div> 
 
         <div className={styles.productsGrid}>
-          {filteredProducts && filteredProducts.length > 0 ? (
+          {isLoading ? (
+            Array.from({ length: 8 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          ) : filteredProducts && filteredProducts.length > 0 ? (
             filteredProducts.map((item) => (
               <CardProduct key={item.id} product={item} />
             ))
