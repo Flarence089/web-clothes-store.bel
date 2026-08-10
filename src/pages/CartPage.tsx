@@ -15,19 +15,22 @@ const CartPage: React.FC = () => {
       <h1 className={styles.pageTitle}>Корзина</h1>
 
       {cartItems.length > 0 ? (
-        <>
-          <div className={styles.cartWrapper}>
-            {cartItems.map((item) => (
-              <CartItem key={item.id} product={item} />
-            ))}
-          </div>
+  <>
+    <div className={styles.cartWrapper}>
+      {cartItems.map((item) => (
+        <CartItem key={item.id} product={item} />
+      ))}
+    </div>
           
-          <div className={styles.cartTotal}>
-            Итого к оплате: ${totalPrice.toFixed(2)}
+         <div className={styles.cartTotal}>
+             Итого к оплате: ${totalPrice.toFixed(2)}
           </div>
         </>
       ) : (
-        <p className={styles.emptyCart}>Ваша корзина пуста</p>
+       <div className={styles.emptyCart}>
+       <span className={styles.emptyCartIcon}>🛒</span>
+       <p>Ваша корзина пуста</p>
+      </div>
       )}
     </div>
   );
