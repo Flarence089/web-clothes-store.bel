@@ -1,7 +1,5 @@
 .container {
   padding: 40px;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
   background: radial-gradient(circle at top, #1a1a1a 0%, #0d0d0d 100%);
   min-height: 100vh;
   color: #f9fafb;

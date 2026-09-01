@@ -1,45 +1,42 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import type { IProducts } from './assets/types/types';
 import styles from './styles/App.module.css'
-import { Link } from 'react-router-dom';
-import { useFavoritesStore } from './store/useFavoritesStore';
-import { useCartStore } from './store/useCartStore'
-import huiStyles from './styles/Button.module.css'
+import darkStyles from './styles/CardProductDark.module.css'
+import buttonStyles from './styles/Button.module.css' 
 
 interface ICardProducts {
   product: IProducts;
+  isLiked: boolean;
+  onToggleFavorite: (product: IProducts) => void;
+  onToggleCart: (product: IProducts) => void;
+  theme?: 'light' | 'dark';
 }
 
-const CardProduct: React.FC<ICardProducts> = ({ product }) => {
-  const { favorites, toggleFavorite } = useFavoritesStore()
-  const { toggleCart } = useCartStore();
-  const isLiked = !!favorites[product.id];
+const CardProduct: React.FC<ICardProducts> = ({ 
+  product, isLiked, onToggleFavorite, onToggleCart, theme = 'light'
+}) => {
+  const s = theme === 'dark' ? darkStyles : styles;
 
   return (
-    <div className={styles.rect}>
-      <Link to={`/product/${product.id}`} className={styles.cardLink}>
-        <div className={styles.imageWrapper}>
-          <img src={product.image} alt={product.title} className={styles.img} />
+    <div className={s.rect}>
+      <Link to={`/product/${product.id}`} className={s.cardLink}>
+        <div className={s.imageWrapper}>
+          <img src={product.image} alt={product.title} className={s.img} />
         </div>
-        
-        <div className={styles['info-wrapper']}>
-          <p className={styles.price}>${product.price}</p>
-          <p className={styles.titleProduct}>{product.title}</p>
-          <p className={styles.ratingProduct}>{product.rating.rate}/5.0</p>
+
+        <div className={s['info-wrapper']}>
+          <p className={s.price}>${product.price}</p>
+          <p className={s.titleProduct}>{product.title}</p>
+          <p className={s.ratingProduct}>{product.rating.rate}/5.0</p>
         </div>
       </Link>
 
-      <div className={styles.cardFooter}>
-        <button 
-          onClick={() => toggleFavorite(product)}
-          className={styles.favoriteBtn}
-        >
+      <div className={s.cardFooter}>
+        <button onClick={() => onToggleFavorite(product)} className={s.favoriteBtn}>
           {isLiked ? '❤️' : '🤍'}
         </button>
-        <button 
-          className={huiStyles.myButton} 
-          onClick={() => toggleCart(product)}
-        >
+        <button className={buttonStyles.myButton} onClick={() => onToggleCart(product)}>
           В корзину
         </button>
       </div>

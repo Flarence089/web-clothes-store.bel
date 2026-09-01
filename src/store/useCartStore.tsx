@@ -17,19 +17,24 @@ export const useCartStore = create<CartStore>((set) => ({
   cart: {},
 
   toggleCart: (product) => set((state) => {
-    const newCart = { ...state.cart };
-    
-    if (newCart[product.id]) {
-      if (newCart[product.id].quantity < product.rating.count) {
-        newCart[product.id].quantity += 0;
-      }
-    } else {
-      newCart[product.id] = { ...product, quantity: 1 };
-    }
-    
-    return { cart: newCart };
-  }),
+  const existing = state.cart[product.id];
 
+  if (existing) {
+    if (existing.quantity < product.rating.count) {
+      return {
+        cart: {
+          ...state.cart,
+          [product.id]: { ...existing, quantity: existing.quantity + 1 }
+        }
+      };
+    }
+    return state; 
+  }
+
+  return {
+    cart: { ...state.cart, [product.id]: { ...product, quantity: 1 } }
+  };
+}),
 
   increaseQuantity: (id) => set((state) => {
     const newCart = { ...state.cart };
