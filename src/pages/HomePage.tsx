@@ -59,7 +59,7 @@ const sortedProducts = filteredProducts
       <section>
         <div>
           <h2 className={styles.sectionTitle}>Товары</h2>
-          <div style={{ position: 'relative', display: 'inline-block', marginBottom: '16px' }}>
+          <div style={{ position: 'relative', display: 'inline-block', marginBottom: '16px',marginLeft:'130px' }}>
   <button className={huiStyles.myButton} onClick={() => setIsOpen(!isOpen)}>
     {sortLabels[sortBy]} {isOpen ? '▲' : '▼'}
   </button>
@@ -96,8 +96,8 @@ const sortedProducts = filteredProducts
             Array.from({ length: 8 }).map((_, index) => (
               <SkeletonCard key={index} />
             ))
-          ) : filteredProducts && filteredProducts.length > 0 ? (
-            filteredProducts.map((item) => (
+          ) : sortedProducts && sortedProducts.length > 0 ? (
+  sortedProducts.map((item) => (
           <CardProduct
             key={item.id}
             product={item}
